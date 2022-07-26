@@ -35,6 +35,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     thoughts(username: String): [Thought]
@@ -42,16 +43,21 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username:String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
+//This means that an Auth type must return a token and can optionally include any other user data.
 
-//Notice the exclamation point ! after the query parameter data type definitions? 
-// That indicates that for that query to be carried out, that data must exist. 
-// Otherwise, Apollo will return an error to the client making the request and the 
+//Notice the exclamation point ! after the query parameter data type definitions?
+// That indicates that for that query to be carried out, that data must exist.
+// Otherwise, Apollo will return an error to the client making the request and the
 // query won't even reach the resolver function associated with it.
-
 
 // export the typeDefs
 module.exports = typeDefs;
