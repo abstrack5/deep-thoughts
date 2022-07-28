@@ -101,3 +101,8 @@ When the useMutation() Hook executes, does it make a request to the server?
 
   the useMutation() Hook simply returns a function that we can use to eventually execute the mutation. If we need to do it immediately, we can implement it with the useEffect() Hook.
 ```
+
+```
+In the update() function (client/components/ThoughtForm), addThought represents the new thought that was just created. Using the cache object, we can read what's currently saved in the QUERY_THOUGHTS cache and then update it with writeQuery() to include the new thought object.
+
+```
