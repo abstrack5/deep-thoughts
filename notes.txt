@@ -63,3 +63,8 @@ app.get('/api/animals/:id', (req, res) => {
   console.log(req.params.id);
 });
 In this example, :id is the parameter, meaning requests to /api/animals/1 or /api/animals/100 would fall under the same route.
+
+
+What's the term used for executing a function that scopes data to a new function and returns it to run at a later time?
+
+A closure.
